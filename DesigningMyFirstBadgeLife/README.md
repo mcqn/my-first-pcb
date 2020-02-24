@@ -2,7 +2,7 @@
 
 ## 1. Installing Kicad
 
-Download the latest stable version of Kicad for your operating system from the [Kicad downloads page](http://kicad-pcb.org/download/).
+Download the latest stable version of Kicad for your operating system from the [Kicad downloads page](http://kicad-pcb.org/download/).  You should make sure it is at least v5.1.5 (that's what all the example files are saved as, if you want to compare them)
 
 ## 1. Build the schematic
 
@@ -11,7 +11,8 @@ Download the latest stable version of Kicad for your operating system from the [
 
 ![Screen shot of the main KiCad window](screenshots/MainKicadScreen.png)
 
-1. Double-click on the schematic file `.sch`
+1. Double-click on the schematic file `.sch`.  The first time you run Kicad it might ask you to "Configure Global Symbol Library Table".  Choose the recommended option.
+
 
 ## 1. Footprints and netlist
 
