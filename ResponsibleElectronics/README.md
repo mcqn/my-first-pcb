@@ -7,3 +7,8 @@ Maybe include instructions on making your own?
 
 1-click-BOM?
 https://app.standardsrepo.com/MakerNetAlliance/OpenKnowHow/wiki?
+
+
+A couple of interesting/relevant links?
+http://www.followthethings.com/
+https://kit.exposingtheinvisible.org/what/supply-chain.html - an intro to investigating supply chains
