@@ -16,3 +16,4 @@ Maybe include instructions on making your own?
 
  * http://www.followthethings.com/
  * https://kit.exposingtheinvisible.org/what/supply-chain.html - an intro to investigating supply chains
+ * https://media.ccc.de/v/36c3-10592-fairtronics - a 36C3 talk about Fairtronics, a tool to help you investigate the fairness of your electronics supply chain
