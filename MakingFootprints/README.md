@@ -106,3 +106,86 @@ Occassionally, like in our example here, there isn't a standard datasheet and yo
 
 ## Footprints
 
+  1. From the main Kicad screen launch the Footprint Editor by clicking on the icon or choosing it from the `Tools` -> `Edit PCB Footprints` menu.
+
+     ![Icon for the Footprint Editor](screenshots/FootprintEditorIcon.png)
+
+     That will open the `Footprint Editor` and show you a blank workspace like this:
+
+     ![Screenshot of the blank Footprint Editor screen](screenshots/BlankFootprintEditor.png)
+
+  1. As with any symbols you add, it makes sense not to add your footprints to the core libraries, in case they're updated when you upgrade Kicad.  I tend to create one library to hold all of the assorted components that I create, but you can either do that or group them thematically.
+
+     If you need to create a new library:
+
+     1. Choose `File` -> `New Library...` from the menu.
+     1. Pick a file name for your library.  If you're planning on having a single common library for all of your Kicad projects then find a suitable central location (I have mine in a separate Gitlab repository), otherwise just save it in your project folder
+     1. If you chose a common library in the last step, select `Global` in the `Select Library Table` dialog box; otherwise choose `Project` and click `OK`
+
+  1. Next, choose `File` -> `New Footprint...` which will ask you for a name.  Give it a suitably descriptive name so you can easily recognise what it is in future.  The part number is a good choice.  For this connector we'll go with `Molex_44206-0007_socket_(ATX_power)`&mdash;Manufacturer, then Part Number (and an extra description) and click `OK`
+
+  1. Move the `REF**` and name labels down a bit, to clear some room for drawing out the footprint.  Select each item in turn, then type `m` and drag it to a new location.  After you're done, it should look something like this:
+
+     ![Screenshot of the initial footprint, with the REF** and name labels near the bottom of the screen, and the blue crosshairs in the centre](screenshots/FootprintEditor-initial.png)
+
+  1. As it translates into the physical footprint on the PCB, it's important for your dimensions to be correct.  Having [the technical drawing or datasheet](https://www.molex.com/pdm_docs/sd/442060007_sd.pdf) to hand will help here.  The other important step is to get the orientation of the pins right.  The pin numbers you configured in the symbol *must* correspond to the correct pin in the footprint.
+
+     Often the drawing will have the pins labelled, but the one we have for the Molex connector doesn't.  We can use the [pinout diagram](https://www.smpspowersupply.com/connectors-pinouts.html) we used for the schematic, but remember that the diagram there is for the *plug* and so we'll need to mirror that for the *socket*.  It can be helpful to have the physical part to hand too, to check against your design or the datasheet.
+
+     We need to place the pins onto the footprint.  To do that select the `Add pad` tool from the toolbar, of via the `Place` -> `Pad` menu:
+
+     ![Icon for the Add Pad tool](screenshots/AddPadIcon.png)
+
+     Place all of the pads in their general location&mdash;we'll tidy them up in a moment.  Once all 24 are placed, it will look like this (and you can leave the `Add pad` tool by pressing `Esc` or selecting the pointer from the toolbar):
+
+     ![Screenshot of the footprint editor, with the 24 pads placed in two horizontal rows - pin 1 bottom right, pin 13 top right](screenshots/FootprintEditor-PadsPlaced.png)
+
+  1. Now we can edit each pad to set its location correctly and any other parameters we need.  Click on pad 1, and press `e` to edit it.  That will bring up its properties dialog:
+
+     ![Screenshot of the Pad Properties dialog](screenshots/PadProperties.png)
+
+     There's quite a bit to go through here, so we'll take each of the important fields in turn:
+
+      * **Pad number** This is the number that will get matched to the pin in the symbol.  They should be in the right order, but you can edit things here if they're not
+      * **Pad type** What sort of pad is this?  All of our pins for the Molex connector are `Through-hole` (where a hole is drilled into the PCB that the pin pushes through), but `SMD` is common for surface-mount components.  We'll also use `NPTH, Mechanical` option later, when we're adding the mounting pegs
+      * **Shape** The shape of the copper part of the pad.  We can leave the rest of them as `Circular`, but it's useful to make pin 1 `Rectangular` so that we can spot it on the finished PCB.
+      * **Position X** The X coordinate of the centre of the pad.  Looking at the technical drawing we can see from the table in the bottom left that dimension `A` for a 24-pin connector will be 46.2mm (or 1.82").  As we're centring the connector, we'll want half to the right and half to the left, so pin 1 will be at 23.1mm.  From the "recommended hole layout" section of the drawing we can see that the pins are spaced 4.20mm apart, so pin 2 will be at 18.9mm; pin 3 at 14.7mm, pin 4 at 10.5mm, pin 5 at 6.3mm and pin 6 at 2.1mm.  Pins 7 to 12 will have the negative equivalents of 6 to 1, so from -2.1mm to -23.1mm.
+      * **Position Y** The Y coordinate of the centre of the pad.  The "recommended hole layout" section again shows us that the two rows are spaced 5.50mm apart, and as we're centring the connector the top row (pins 13 to 24) will be at half of that: -2.75mm, and the bottom row (pins 1 to 12) will be at 2.75mm
+      * **Size X** The width of the copper part of the pad.  Because the hole size is larger than normal, we should make this bigger too so that there's a decent amount of copper to solder to.  2.2mm will be sufficient.
+      * **Size Y** The height of the copper part of the pad.  For `Circular` pads this will be greyed-out as the `Size X` value defined the diameter of the circle.  We should make this 2.2mm too.
+      * **Hole size X** The diameter of the hole drilled into the PCB.  From the technical drawing we can see that it should be 1.40mm.
+
+     Repeat the process for the remaining pads to end up with this:
+
+     ![Screenshot of the footprint editor with the larger pads all properly aligned](screenshots/FootprintEditor-PadsArranged.png)
+
+  1. Now we'll add the outline of the connector to the silkscreen.  The top left diagram in the technical drawing is best for that, and we'll draw a fairly simple rectangle of dimension `B` (for the 24-pin connector the table in the bottom-left corner tells us that's 51.6mm) by 9.6mm.
+
+     Choose the `Add graphic line` tool from the toolbar, or via the `Place` -> `Line` menu:
+
+     ![Icon for the Add graphic line tool](screenshots/AddGraphicLineIcon.png)
+
+     Draw a rectangle around the pads, ending it with a double-click.  Then choose the mouse pointer tool again (or press `Esc`).
+
+     Select each of the sides of the rectangle in turn, and type `e` to edit it.  Set the start and end coordinates of the side accordingly - the top-left corner is at [-25.8,-4.8] and the bottom-right corner at [25.8,4.8].
+
+     ![Line Segment Properties dialog box](screenshots/LineSegmentProperties.png)
+
+     The line thickness of 0.15mm will be fine.  And we want it to be drawn on the silkscreen on the front of the PCB (it will move to the back silkscreen if you move the footprint to the back of the board), but if you wanted to draw lines onto a different layer of the PCB you could change that here.
+
+  1. We should also draw the clip from the side of the connector, to remind us which way round the connector fits and more importantly remind us that there's a clip on that side, so we shouldn't place components *too* close to it in case it makes it hard to remove the plug after the PCB is assembled.
+
+     Using the `Add graphic line` tool again, draw the three sides of the clip onto the top edge of the connector outline.  The technical drawing shows that it's 11.90mm wide, but fails to give a dimension for how wide it is.  We'll eyeball it at 2mm, as it's not a critical dimension for fitting the component to the board.  Edit the lines so that they're from [-5.95, -6.8] to [5.95, -4.8].
+
+     Giving you this:
+
+     ![Screenshot of the footprint editor, with the connector outline with clip drawn on](screenshots/FootprintEditor-Outline.png)
+
+  1. The last step is to add the holes for the mounting pegs on the connector.  Using the `Add pad` tool, add two new pads one either side of the connector roughly in line with the top row.  Select each in turn and edit it.
+
+     Set the `Pad type` to `NPTH, Mechanical` to show that it's just a mounting hole.  Consulting the "recommended hole layout" on the technical drawing again, we can see that the holes are 3mm in diamter.  The centre of the hole is 4.70mm in the X dimension from the end pin, so at (-)27.8, and 0.46mm below the top row on the Y dimension, so at -2.29mm.  The pad size also needs to be increased, so that it's the same size as the hole.
+
+     ![Screenshot of the footprint editor with the finished footprint](screenshots/FootprintEditor-Finished.png)
+
+  1. With the footprint now finished, all that remains is to save it.  Choose `File` -> `Save` from the menu; then choose the library that you created at the start (or the one you've already created to store your footprints) and click `Save`
+
