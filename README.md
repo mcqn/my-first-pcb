@@ -6,6 +6,14 @@ It's easier than you think.
 
 Start off by running through the basics in [Designing my first #BadgeLife](DesigningMyFirstBadgeLife) and then choose your own route through the remaining tutorials based on what you're looking to build.
 
+## Agenda
+
+ * 10am Welcome
+ * 10:30am Work through the basics of designing a simple PCB and preparing the files to send off to manufacture
+ * 12:30pm Lunch Break
+ * 1:30pm Free-form exploring one of the other lessons
+ * 3:30pm Wrap up
+
 ## Lessons
 
  * [Designing my first #BadgeLife](DesigningMyFirstBadgeLife).  The basics, from breadboard to ordering PCBs.  **DO THIS ONE FIRST**
