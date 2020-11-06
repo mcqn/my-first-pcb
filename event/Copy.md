@@ -3,6 +3,12 @@
 ## Saturday 5th December 2020
 ## DoESLiverpool, Event Space, 1st Floor, The Tapestry, 68-76 Kempston Street, Liverpool, L3 8HL.
 
+## Pricing
+
+ * **Free**: If you cant afford it, free, no questions asked.
+ * **Market Price**: **£40**, What we need to help cover the costs.
+ * **Solidarity Price**: **£80**, Feel like helping to subsidise other places.
+
 ### Learn how to make your first Printed Circuit Board (PCB)!
 
 Design a printed circuit board to get you started in the world of electronics design and small scale manufacturing. Designed to give you an understanding of some basic fundamentals in electronics production with [KiCad](https://kicad-pcb.org/) using [MCQN Ltd](https://mcqn.com/)'s experience designing and developing products, systems and the Internet of Things. Everything from cufflinks, dust sensors, Museum installations and internet connected bells and bubble machines.
