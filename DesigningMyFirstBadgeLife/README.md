@@ -150,6 +150,47 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
 1. ## Lay out the PCB
 
+   Now we'll move to `Pcbnew`, the program we use to define the physical layout of the PCB.
+
+   Close the schematic editor, and in the main `Kicad` program click on the `Pcbnew` icon ![Icon for the Pcbnew](screenshots/PcbnewIcon.png) or choose `Tools` -> `Edit PCB` from the menu.
+
+   ![Screenshot of the empty Pcbnew screen](screenshots/Pcbnew-Blank.png)
+
+   The first step is to import the netlist that we generated in the schematic editor.  This will tell Pcbnew what components there are and how they are wired to each other.
+
+   Click on the `Load netlist` icon in the toolbar at the top of the screen ![Load netlist icon](screenshots/LoadNetlistIcon.png) or choose `Tools` -> `Load Netlist...` from the menu.
+
+   In the `Netlist` dialog, enter the location of the netlist file that you saved earlier.  (Clicking the browse folder icon should open in the right place with the netlist file as the only option.)  That will show the new components that it finds and that are ready to be loaded:
+
+   ![Screenshot of the Netlist dialog](screenshots/NetlistDialog.png)
+
+   Click `Update PCB` and the components will be added to the work area and then `Close` to close the dialog.
+
+   You'll then be presented with a crosshairs where your mouse is, and the newly added components will move around as you move the mouse:
+
+   ![Screenshot of the components and the mouse crosshairs](screenshots/Pcbnew-AddingComponents.png)
+
+   Move the components to somewhere near the middle of the work area, and left-click to place them there.  Don't worry too much about the locations, we'll move them all in a moment.
+
+   If we zoom in a bit, we'll see something like this:
+
+   ![Screenshot of the components zoomed]()
+
+   FIXME:
+     1. Explain the ratsnest
+     1. Move the battery onto the rear of the board
+     1. Position LED and resistor - rotating components, moving silkscreen for `R1`, etc.
+     1. Wire up connections, with vias to flip between front and back - point out switching board side for wires to avoid crossing wires
+     1. Add copper pour for ground on the underside
+     1. Add board edges
+     1. Add mounting holes (for a lanyard in this example...)
+     1. Add WEEE logo and RoHS logo to rear silkscreen
+     1. Add board version (and any other text you fancy) to the silkscreen
+     1. Run DRC
+     1. Save file
+     1. Export Gerbers
+     1. Zip Gerbers
+     1. Ordering boards from JLCPCB, DirtyPCBs, European Circuits or OSHPark
 
    ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2021-05-19.png)
 
