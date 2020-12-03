@@ -1,6 +1,6 @@
 # The Basics - Designing an LED Throwie
 
-We're going to start with one of the simplest circuits for our first badge: a battery-powered LED.
+We're going to start with one of the simplest circuits for our first badge: a battery-powered LED.  It won't be the most exciting circuit board but will let us focus on all the steps in making the PCB without getting distracted by how the electronics work.
 
 1. ## Installing Kicad
 
@@ -174,49 +174,112 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    If we zoom in a bit, we'll see something like this:
 
-   ![Screenshot of the components zoomed]()
+   ![Screenshot of the components zoomed in to fill the work area](screenshots/Pcbnew-ComponentsAdded.png)
+
+   There are the three components. Their pads are in dark red&mdash;these are the areas where the copper will be exposed to let you solder the components on.  And there are thin white lines showing which pads to connect to which&mdash;these **aren't** the wires, they're just showing where we'll need to draw wires later.  These white lines are known as the *ratsnest*.
+
+   All of the components are on the top side of the board right now.  The battery should go on the back so it's not visible on the badge, so our first step will be to move to the other side of the board.
+
+   Click somewhere inside the battery component to select it.  Then right click and choose `Properties...` from the menu or just type `e` to bring up its properties dialog:
+
+   ![Screenshot of the battery's properties dialog](screenshots/Pcbnew-BatteryProperties.png)
+
+   In the bottom left you can see the `Board side` which is currently set to `Front`.  Change that to `Back` and then click `OK` to close the dialog.
+
+   ![Screenshot of the components with the battery flipped](screenshots/Pcbnew-BatteryOnBack.png)
+
+   You'll see that the battery component is now flipped, with the text mirrored to show that it's on the back of the PCB.  Some of the colours have also changed: the pads are green to show that they're on the back copper `B.Cu` layer; and the `BT1` text is purple to show that it's now on the back silkscreen `B.SilkS` layer rather than the teal *front* silkscreen `F.SilkS` layer.
+
+   Now we'll move the components to where we want them to live.
+
+   > For this simple example it's fairly easy and we'll actually make it a bit more complicated than it needs to be, so we can try out *vias*.
+   > 
+   > My usual process for this step is to separate out groups of components into logical areas&mdash;the regulator and its smoothing capacitors, for example, over in one group; the amplifier chip, its resistors and capacitors, speaker connectors and potentiometer in another area...   That will give you little clusters of locals ratsnests with usually fewer wires connecting up the different groups.
+   >
+   > Then I can focus on laying out one of those clusters&mdash;moving and rotating components to minimize the number of wires in the ratsnest that cross over.  Then I can work through wiring things up locally, from the easy options through to the more difficult.  There'll often be little bits of reworking things when I realise one of the easy wires needs moving over a little or something similar.
+   > 
+   > As the local clusters get laid out, I can start to shuffle them around as complete units and line them up with each other to again reduce how much the wires between clusters cross over.  It should get easier as things progress as you'll have fewer and fewer of the white ratsnest wires to deal with.
+   > 
+   > I'll generally loop round that process a few times, with little bits of rework and re-jigging things each time, until I get everything in place.
+   
+   Move the components until they match the view here.  To move a component click on it and then type `m` or right-click and choose `Move` from the menu.  You'll see that `R1` has also been rotated&mdash;you can do that by typing `r` while the component is selected, and even while you're in the middle of moving it!  As I said, you'd normally try to avoid crossing the wires over like they are here.
+
+   ![Screenshot of the components laid out, with the battery at the top and the resistor and diode below](screenshots/Pcbnew-ComponentsPositioned.png)
+
+   Now we'll start drawing out the wires to connect the components up.
+
+   Click on the `Route tracks` tool in the right-hand toolbar ![Route tracks icon](screenshots/RouteTracksIcon.png)  
+
+   Then click inside the `1 +BATT` pad on the battery.  That will start to draw out a track on the back copper (in green) to meet the mouse cursor.  Our target is the bottom pad of `R1`, which is on the front copper (in red) so we need to switch from one side of the board to the other.  We do that with a *via*, a tiny hole that's drilled through the board to connect one side to the other.  While we're drawing a track we can type `v` which will let us place a via on the board by left-clicking where we want it to be.  Then the colour of the track will swap to show that we're now laying out a track on the opposite side of the board.  Kicad will try to guess a suitable path for the track to take, but you can also click at various points along the track to have it follow a path that you define.
+
+   When you finish routing the track over to `R1` and click into the bottom pad you'll have something like this:
+
+   ![Screenshot with the first track routed from the battery to R1](screenshots/Pcbnew-FirstTrackRouted.png)
+
+   If we follow the same process to route a track from the `2 GND` pad of the battery over to `D1`, with a via just above the pad on `D1` we'll have this.  You'll see that the two tracks cross over, but because they're on opposite sides of the board there isn't any conflict between them.
+
+   ![Screenshot with the second track routed](screenshots/Pcbnew-SecondTrackRouted.png)
+
+   The final track is between two pads on the same side of the board, so could be done without any vias.  If you try drawing a straight track from `D1` to `R1` you'll see that Kicad will automatically route the track around the one running from `R1` to the via on the track to the battery.  That's because it knows that those two tracks can't cross.
+
+   The other option would be to use vias to bounce the track onto the opposite side of the board until it's past the `R1`&lt;-&gt;battery track.  That's what I've done in the version shown below.  There isn't a right or wrong answer for that, it depends on the situation you're trying to solve.
+
+   ![Screenshot with all the tracks routed, with the last one using two vias to get past another track](screenshots/Pcbnew-AllTracksRouted.png)
+
+   That's all of the tracks routed, but there's one big thing we haven't done yet&mdash;we haven't defined how bit the PCB itself is!
+
+   To do that we first need to switch the layer that we're working on.  On the top toolbar you'll see this drop-down menu ![Screenshot of the layer selector drop-down](screenshots/Pcbnew-LayerSelector.png) which is probably set to `F.Cu` for the front copper.  If you click on that and select the `Edge.Cuts` layer then we'll be able to draw in the edges of our PCB.
+
+   The graphic tools in the right-hand toolbar will let us draw out the edge of the PCB:
+
+   ![Screenshot of the graphic tools: lines, cirlce, arc and polygon](screenshots/GraphicToolsIcons.png)
+
+   For some variety I've gone with a circle:
+
+   ![Screenshot of the board with the yellow edge-cut circle drawn round it](screenshots/Pcbnew-BoardEdgeAdded.png)
+
+   You can use the graphic tools on other layers too.  We can select the `F.SilkS` layer and add some text...
+
+   ![Screenshot of the text dialog, containing the wording "Hello! My name is..."](screenshots/Pcbnew-TextDialog.png)
+
+   And then a graphic polygon:
+
+   ![Screenshot with a roughly-rectangular polygon under the text](screenshots/Pcbnew-PolygonAdded.png)
+
+   It would be useful to have somewhere to attach a lanyard to our badge.  We can use some mounting holes for that.
+
+   Choose the `Add footprints` tool ![Add footprints icon](screenshots/AddFootprintsIcon.png) and click where you want to add the mounting hole.  When the `Choose Footprint` dialog opens, find the `MountingHole` library in the list and double-click on it to expand it.
+
+   ![Screenshot of the Choose Footprint dialog](screenshots/Pcbnew-ChooseFootprint.png)
+
+   Choose `MountingHole_3.2mm_M3` and click `OK`.  Position the hole in the top left corner of the board, and then add another in the top right corner.
+
+   ![Screenshot of the board with mounting holes added](screenshots/Pcbnew-MountingHolesAdded.png)
+
+   You'll see there that there are two instances of `REF**` on the front silkscreen that don't fit inside the board edges.  We don't want that text at all, so select it (just the `REF**` text, not the entire mounting hole) and type `e` to open its properties dialog.  Then you can untick the `Visible` checkbox and hit `OK` and the text will be removed from the board.  Repeat the process for the second `REF**` text.
+
+   ![Screenshot of the text properties dialog](screenshots/Pcbnew-TextProperties.png)
+
+   We should add some more details to the back silkscreen too.  The WEEE logo to remind people to dispose of their badge responsibly, maybe an open hardware logo too...
+
+   You can add them in the same way as we did for the mounting holes, but looking in the `Symbol` library and adding both `OSHW-Logo2_7.3x6mm_SilkScreen` and `WEEE-Logo_4.2x6mm_SilkScreen`.  When you first add them they'll be placed onto the *front* silkscreen, so you'll need to edit their properties to move them to the back of the board.
+
+   ![Screenshot with the WEEE and OSHW logos added](screenshots/Pcbnew-WEEEAndOSHWLogos.png)
+
+   A link to more information and a revision number are also useful; the first so that other people can find out more about the badge, and the second so that you can tell exactly which version of the board you're holding when you get to making newer versions of it.
+
+   If you're finding the board a bit cluttered to work on now, you can hide one or more of the layers to reduce the amount of information shown on screen.  For example, the front silkscreen dominates with that big graphic polygon, so it might be easier to hide it while working on the back silkscreen.  You can do that by unticking that layer in the `Layers Manager` list on the right hand side.
+
+   ![Screenshot of the Layers Manager with the F.SilkS layer unticked](screenshots/Pcbnew-LayersManager.png)
+
+   I've added the URL for this course and a revision number of `r20201203` here.  I usually use the date that I'm making the board as the revision number, then I don't have to remember exactly which version I'm up to...  The front silkscreen is also hidden in this screenshot:
+
+   ![Screenshot with the URL and revision number added, and the front silkscreen hidden](screenshots/Pcbnew-RevisionNumberAdded.png)
 
    FIXME:
-     1. Explain the ratsnest
-     1. Move the battery onto the rear of the board
-     1. Position LED and resistor - rotating components, moving silkscreen for `R1`, etc.
-     1. Wire up connections, with vias to flip between front and back - point out switching board side for wires to avoid crossing wires
      1. Add copper pour for ground on the underside
-     1. Add board edges
-     1. Add mounting holes (for a lanyard in this example...)
-     1. Add WEEE logo and RoHS logo to rear silkscreen
-     1. Add board version (and any other text you fancy) to the silkscreen
      1. Run DRC
      1. Save file
-     1. Export Gerbers
-     1. Zip Gerbers
-     1. Ordering boards from JLCPCB, DirtyPCBs, European Circuits or OSHPark
-
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2021-05-19.png)
-
-
-
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2021-05-25.png)
-
-
-
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2021-05-48.png)
-
-
-
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2021-06-03.png)
-
-
-
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2021-06-14.png)
-
-
-
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2021-06-20.png)
-
-
-
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2021-06-31.png)
 
 1. ## Getting physical boards
 
@@ -224,4 +287,9 @@ We're going to start with one of the simplest circuits for our first badge: a ba
    1. Making them...
       * Milling your own PCB
       * Sending them to a PCB fab house
+
+   FIXME:
+     1. Export Gerbers
+     1. Zip Gerbers
+     1. Ordering boards from JLCPCB, DirtyPCBs, European Circuits or OSHPark
 
