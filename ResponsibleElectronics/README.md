@@ -4,13 +4,13 @@
 
 At MCQN we want to advocate for good practices in making electronics responsibly. As beginners in making printed circuit boards, you are potentially the future of electronic making and manufacturing!
 
-We've pulled together a few notes, resource and links here, but we hope to build on it in the future so [raise an issue](https://github.com/mcqn/my-first-pcb/issues).
+We've pulled together a few notes, resource and links here, but we hope to build on it in the future so [raise an issue if you think of a good link or project that relates](https://github.com/mcqn/my-first-pcb/issues).
 
 ### Documentation & Open Source
 
 Documentation is all part of the responsibility of making electronics; not just safety and good practice  but our responsibility to the cost (economic, energy, environmental, social) of making electronics; documenting and sharing means people can re-use the work you've done. The less we have to re-invent and more we can re-use the things we need in the world the better.
 
-If you are interested in open sourcing your project, it's worth noting that although very rewarding it's alot of hard work to present the source of your project and product in a way that's useful to other people. It can be quite a difficult process to really make open source hardware which we may touch on toward the end of the research
+If you are interested in open sourcing your project, it's worth noting that although very rewarding it's alot of hard work to present the source of your project and product in a way that's useful to other people. It can be quite a difficult process to really make open source hardware which we may touch on toward the end of the workshop.
 
 Essentially it's about making clear documentation in conventions and formats that make sense. You can look around at some hardware projects and get the idea for how it's done. However just documenting your own work and all the useful parts of your Kicad workflow is a good place to start and is surprisingly useful.
 
