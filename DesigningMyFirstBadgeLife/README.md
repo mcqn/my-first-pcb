@@ -276,10 +276,39 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    ![Screenshot with the URL and revision number added, and the front silkscreen hidden](screenshots/Pcbnew-RevisionNumberAdded.png)
 
-   FIXME:
-     1. Add copper pour for ground on the underside
-     1. Run DRC
-     1. Save file
+   This circuit is unlikely to generate any stray radio signals, but it's good practice in general to add a copper fill across the board that's connected to ground to provide a path to ground for them.  You can also use this technique to provide larger areas of copper to act as a heatsink on regulators, MOSFets or similar chips (it's the sort of thing that's detailed in the datasheet for a chip if it's important).
+
+   Choose the `Add filled zones` tool ![Add filled zones icon](screenshots/FilledZonesIcon.png) from the toolbar on the right hand side, or via the `Place` -> `Zone` menu.
+
+   Then click in the top left corner of the board.  If the zone is outside the edge of the board it will automatically get trimmed to the edge so here, where we just want to flood any spare room on the board with copper, we can actually draw a simple box round to outside of the board edges.
+
+   Your first click, as well as defining the start of your zone polygon, will bring up the `Copper Zone Properties` dialog.  Choose the side of the board you want to fill, in this case the back copper `B.Cu`, and then which part of the circuit&mdash;the `Net`&mdash;that should be connected to it.  We want to connect it to ground, so choose `GND`.  If you were drawing a zone to connect to a MOSFET or something then you'd find the appropriate pad connection in the list of nets.  You can leave the rest of the settings as the defaults, and click `OK`.
+
+   ![Screenshot of the Copper Zone Properties dialog](screenshots/Pcbnew-CopperZoneProperties.png)
+
+   Now draw out the rest of the zone, clicking on each corner.  To finish drawing the zone, double-click on the last corner.
+
+   It won't be immediately obvious that anything has changed, other than there being a box with green hashed lines round your design.  That's because the default view doesn't show the filled in copper because it makes it harder to see other parts of the design.  Clicking on the filled zone view options in the left hand toolbar will let you choose between the default (not shown); fully filled in; or the edge of the zone drawn in.
+
+   ![Filled zone view icons](screenshots/FilledZoneViewIcons.png)
+
+   With the view set to `Show filled areas in zones` it will now look like this:
+
+   ![Screenshot of the board filled in with green copper zone](screenshots/Pcbnew-GroundPlaneAdded.png)
+
+   That's our board all finished now.  The final step before we move to production is to run the `Design Rules Check` or `DRC`.  This gets Kicad to check over the design and check that you've remembered to add tracks for all the connections and that you haven't placed any components too close to each other, made any tracks too thin... that sort of thing.
+
+   Click the `DRC` tool icon ![Design Rules Check icon](screenshots/DRCIcon.png) in the top toolbar or choose `Inspect` -> `Design Rules Checker` from the menu.  That will open the design rule checker.
+
+   ![Screenshot of the DRC dialog](screenshots/Pcbnew-DRC.png)
+
+   Your PCB house (i.e. the place who you're getting to make your PCBs for you) will usually have a list of the capabilities of their manufacuring processes: how fine the tracks can be, the smallest size of vias, etc.  These are the "design rules" that we're now going to check.  When you get onto more comlex and detailed designs you might need to pay more attention to the exact settings here, but for beginner designs the Kicad defaults should be well within anything your PCB house can make, so we can leave the various settings at their defaults.
+
+   Click `Run DRC` to perform the check, and then see if it finds any problems.  Remember to check the `Unconnected Items` tab too&mdash;I've been caught out by not spotting something lying in there before!
+
+   You should fix any problems it finds, and then re-run the check until you get the all clear like here:
+
+   ![Screenshot of a successful design rules check](screenshots/Pcbnew-DRCOK.png)
 
 1. ## Getting physical boards
 
