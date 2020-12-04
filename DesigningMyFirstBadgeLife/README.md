@@ -312,13 +312,34 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
 1. ## Getting physical boards
 
-   1. Generating Gerbers and drill file
-   1. Making them...
-      * Milling your own PCB
-      * Sending them to a PCB fab house
+   It's time to take your design and turn it into actual physical PCBs!
 
-   FIXME:
-     1. Export Gerbers
-     1. Zip Gerbers
-     1. Ordering boards from JLCPCB, DirtyPCBs, European Circuits or OSHPark
+   You could make them yourself by etching or milling them on a CNC mill, but that doesn't give you any soldermask (to protect any of the bare copper tracks) or plating on the through holes (which makes double-sided boards more hassle as there's no connection from one side to the other).
 
+   These days there are many online PCB services which are stupidly cheap, so providing you can wait a week or two for the PCBs to arrive, it's not worth making the boards yourself.
+
+   For small numbers of boards, I tend to use either [JLC PCB](https://jlcpcb.com/) in China or [OSHPark](https://oshpark.com/) in the US.  They're both really good services.  When I'm ordering more, or need a quicker turn-around or need UK manufacturing, [European Circuits](https://european-circuits.co.uk/) up in Glasgow are great.  Their pricing has a set-up fee, which means it's not as competitve for small orders but once you're getting 50+ boards it's less of an issue.
+
+   For any of the services, you'll need to generate a set of Gerber files.  This is the standard format that all PCB houses use.  Some of them will let you upload your Kicad files now, but I tend to stick with the tried-and-tested Gerbers.
+
+   To generate them, open your design in `Pcbnew` and then choose `File` -> `Plot...` from the menu, which will open the `Plot` dialog:
+
+   ![Screenshot of the Plot dialog](screenshots/Pcbnew-Plot.png)
+
+   I usually create a new folder for the `Output directory` so that it's easy to see which files get created&mdash;generally called "Output" and in the same folder as the Kicad project itself, but feel free to choose anywhere that makes sense to you.
+
+   Then you need to choose the layers to plot in the `Included Layers` list.  This list: F.Cu, B.Cu, F.Adhes, B.Adhes, F.Paste, B.Paste, F.SilkS, B.SilkS, F.Mask, B.Mask and Edge.Cuts is my standard list.  If you're not sure whether or not to include something, lean towards including it as the PCB houses are pretty good at knowing which is which and ignoring the layers they don't care about.
+
+   The default options for the rest are fine, and obviously the `Plot format` should be `Gerber`.  Clicking `Plot` will generate the files&mdash;one for each layer&mdash;and list them in the `Output Messages` area.
+
+   Before you close the `Plot` dialog we also need to generate the drill files.  Click `Generate Drill Files...` to open that diaglog:
+
+   ![Screenshot of the Generate Drill Files dialog](screenshots/Pcbnew-GenerateDrillFiles.png)
+
+   The `Output folder` should be the same as the one we used when plotting the Gerber files, and againthe default options as shown here should be okay.  Click `Generate Drill File` to create the necessary drill files.
+
+   Now close the dialog boxes and Pcbnew.  Then find the files you just generated, and combine them all into a zip file.  This is what you'll upload to the PCB service when you're ordering your boards.
+
+   There aren't any particular gotchas when ordering the boards&mdash;you can choose the colour of solder mask based on your personal preferences, and for other options the PCB house's defaults will be fine for this level of board.  If you're thinking of using solder paste and a hotplate or reflow oven to solder the components on, rather than a soldering iron, then it's worth ordering a PCB stencil at the same time as your PCB.
+
+   Well done, you've got your first PCB designed and ready to order!
