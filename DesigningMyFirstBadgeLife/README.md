@@ -226,7 +226,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    ![Screenshot with all the tracks routed, with the last one using two vias to get past another track](screenshots/Pcbnew-AllTracksRouted.png)
 
-   That's all of the tracks routed, but there's one big thing we haven't done yet&mdash;we haven't defined how bit the PCB itself is!
+   That's all of the tracks routed, but there's one big thing we haven't done yet&mdash;we haven't defined how big the PCB itself is!
 
    To do that we first need to switch the layer that we're working on.  On the top toolbar you'll see this drop-down menu ![Screenshot of the layer selector drop-down](screenshots/Pcbnew-LayerSelector.png) which is probably set to `F.Cu` for the front copper.  If you click on that and select the `Edge.Cuts` layer then we'll be able to draw in the edges of our PCB.
 
@@ -248,7 +248,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    It would be useful to have somewhere to attach a lanyard to our badge.  We can use some mounting holes for that.
 
-   Choose the `Add footprints` tool ![Add footprints icon](screenshots/AddFootprintsIcon.png) and click where you want to add the mounting hole.  When the `Choose Footprint` dialog opens, find the `MountingHole` library in the list and double-click on it to expand it.
+   Choose the `Add footprints` tool on the right hand side ![Add footprints icon](screenshots/AddFootprintsIcon.png) and click where you want to add the mounting hole.  When the `Choose Footprint` dialog opens, find the `MountingHole` library in the list and double-click on it to expand it.
 
    ![Screenshot of the Choose Footprint dialog](screenshots/Pcbnew-ChooseFootprint.png)
 
