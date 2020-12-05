@@ -12,7 +12,7 @@ That will open the 3D viewer.  The X, Y and Z buttons on the toolbar will let yo
 
 Not every component will have a 3D model, particularly if it's a component that you've created.  See the [Adding 3D Models to Your Components](#adding-3d-models-to-your-components) section below to find out how to add new 3D models for individual components.
 
-If you want to customize the view, the `Preferences` menu lets you choose things like the soldermask and silkscreen colours.
+If you want to customize the view, the `Preferences` menu lets you choose things like the soldermask and silkscreen colours.  If you're planning on ordering from OSHPark and want to see it in their trademark purple, you can use [these OSHPark PCB colours](https://twitter.com/anool/status/1284167905186217984).
 
 ## Exporting a 3D Model
 
