@@ -278,7 +278,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    This circuit is unlikely to generate any stray radio signals, but it's good practice in general to add a copper fill across the board that's connected to ground to provide a path to ground for them.  You can also use this technique to provide larger areas of copper to act as a heatsink on regulators, MOSFets or similar chips (it's the sort of thing that's detailed in the datasheet for a chip if it's important).
 
-   Choose the `Add filled zones` tool ![Add filled zones icon](screenshots/FilledZonesIcon.png) from the toolbar on the right hand side, or via the `Place` -> `Zone` menu.
+   Make sure you select a copper layer from the top drop down, then choose the `Add filled zones` tool ![Add filled zones icon](screenshots/FilledZonesIcon.png) from the toolbar on the right hand side, or via the `Place` -> `Zone` menu.
 
    Then click in the top left corner of the board.  If the zone is outside the edge of the board it will automatically get trimmed to the edge so here, where we just want to flood any spare room on the board with copper, we can actually draw a simple box round to outside of the board edges.
 
