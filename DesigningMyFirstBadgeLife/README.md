@@ -164,7 +164,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    ![Screenshot of the Netlist dialog](screenshots/NetlistDialog.png)
 
-   Click `Update PCB` and the components will be added to the work area and then `Close` to close the dialog.
+   Click `Update footprints` and the components will be added to the work area and then `Close` to close the dialog.
 
    You'll then be presented with a crosshairs where your mouse is, and the newly added components will move around as you move the mouse:
 
