@@ -336,7 +336,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    ![Screenshot of the Generate Drill Files dialog](screenshots/Pcbnew-GenerateDrillFiles.png)
 
-   The `Output folder` should be the same as the one we used when plotting the Gerber files, and againthe default options as shown here should be okay.  Click `Generate Drill File` to create the necessary drill files.
+   The `Output folder` should be the same as the one we used when plotting the Gerber files, and again the default options as shown here should be okay.  Click `Generate Drill File` to create the necessary drill files.
 
    Now close the dialog boxes and Pcbnew.  Then find the files you just generated, and combine them all into a zip file.  This is what you'll upload to the PCB service when you're ordering your boards.
 
