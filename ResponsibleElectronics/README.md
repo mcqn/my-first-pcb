@@ -38,7 +38,16 @@ A [Bill of Materials](https://github.com/cheapjack/RF-Craft/blob/master/board/RF
 
 If you ever get to the point of wanting to make and ship thousands of your amazing project, you may want someone like [European Circuits](https://european-circuits.co.uk/) to help assemble them.
 
-The first thing they will ask for is your Bill of Materials. Getting into the practice of documenting this alongside all your schematic files and artwork could save you alot of time later.
+The first thing they will ask for is your Bill of Materials. Getting into the practice of documenting this alongside all your schematic files and artwork could save you alot of time later. [Arduino create's web editor](https://create.arduino.cc/) now includes an asci README `.adoc` file which includes an example BOM entry
+
+| ID | Part name      | Part number | Quantity
+|--|--|--|--
+| R1 | 10k Resistor   | 1234-abcd   | 10
+| L1 | Red LED        | 2345-asdf   | 5
+
+There's an example we generated from KiCad [here](https://github.com/mcqn/my-first-pcb/blob/master/ResponsibleElectronics/my-first-badge-life.csv) in `.csv` format but you can also use the [`.tsv`](https://github.com/mcqn/my-first-pcb/blob/master/ResponsibleElectronics/example.tsv) format or any comma/semi-colon/tab/space seperated list format or spreadsheet. To generate one from KiCad goto `Pcbnew` of your project and choose `File` -> `Fabrication Outputs` -> `BOM File` and save it in your output folder, which makes a semi-colon seperated list as a `.csv` file
+
+![Generating a BOM file from Pcbnew Screenshot](screenshots/kicad-generate-bom-file.png)
 
 
 ### Mapping The Things
@@ -46,12 +55,24 @@ The first thing they will ask for is your Bill of Materials. Getting into the pr
  * We produced a [map of local supply chains and trade counters](https://indie.mcqn.com/map) in the North West of the UK as part of some research on Indie (as in independent) Manufacturing.
 
  * [Sourcemaps](https://open.sourcemap.com/user/5e53f17738e818071948103d) is a really nice way of illustrating where all the parts of your product are made.
+ * [Another Sourcemap](https://open.sourcemap.com/maps/607eea29fb367b6b1b91366e)
 
 ### Tracing the cost
 
 We were inspired by  [@mrchrisadams](https://twitter.com/mrchrisadams) recent lecture on [Reducing Carbon In the Digital Realm](https://docs.google.com/presentation/d/1_uTPiW5aMCwFhZcpLDxjY-AQMgDmHIyUEZQQ-G6XXq8/edit#slide=id.g5d9e2f62d2_0_42) where he shared an energy toxicity matrix, a simple format for thinking and designing energy use in electronics and product development put together at [ThingsCon 2018](thingscon2018.productscience.net))
 
 We've made our own [Materials Energy Toxicity Matrix](MET-Matrix.md) in markdown, which we like to think of as Bill of Materials but for the costs often treated as externalities
+
+
+*"L’inizio dell’elaborazione critica è la coscienza di quello che è realmente, cioè un 'conosci te stesso' come prodotto del processo storico finora svoltosi che ha lasciato in te stesso un’infinità di tracce accolte senza beneficio d’inventario."*
+
+*"The starting-point of critical elaboration is the consciousness of what one really is, and is 'knowing thyself' as a product of the historical process to date which has deposited in you an infinity of traces, without leaving an inventory."*
+
+**Antonio Gramsci - Quaderni del carcere / The Prison Notebooks**
+
+Technical practices and components have hugely dense networks of such traces, the work, care and history packed inside them. Who made and designed them, where and at what 'cost' were they made becomes relevant when we want to make ethically, with care and with love for the technology we use and depend on.
+
+Things like Energy toxicity is vital in writing new histories and new traces into the stuff we make and maintain. Perhaps any previously thought of 'externality' needs to be considered in our technology's Bill Of Materials (BOM). So some kind of open source social justice audit, to inventorize these traces and costs for making, maintaining and using the technology we love is really important.
 
 ### Telling the story of your pcb/product?
 

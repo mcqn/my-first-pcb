@@ -1,0 +1,6 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"REF**";"OSHW-Symbol_6.7x6mm_SilkScreen";1;"OSHW-Symbol_6.7x6mm_SilkScreen";;;
+2;"REF**";"MountingHole_3.2mm_M3";1;"MountingHole_3.2mm_M3";;;
+3;"BT1";"BatteryHolder_Keystone_1060_1x2032";1;"CR2032";;;
+4;"D1";"LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder";1;"LED";;;
+5;"R1";"R_0603_1608Metric_Pad1.05x0.95mm_HandSolder";1;"560";;;
