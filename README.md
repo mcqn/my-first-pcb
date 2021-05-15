@@ -23,6 +23,8 @@ Start off by running through the basics in [Designing my first #BadgeLife](Desig
 
 ## Finding Out More
 
+We've also written some notes on other things to consider, such as how to share your design, thoughts on supply chains and other considerations, in [ResponsibleElectronics](ResponsibleElectronics).
+
 ## Some Inspiration
 
 Some links to the awesome PCB art that others have made:
