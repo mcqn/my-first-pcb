@@ -3,10 +3,14 @@
 
 [FOSDEM talk about SVG2Shenzhen](https://www.youtube.com/watch?v=xXRPw7ItMaM)
 
+[Twinkle Twinkie gave an excellent talk about his *awesome* PCB art](https://www.youtube.com/watch?v=Sbkvza8cKQE)
+
 ## Installing
 
  1. First off you'll need [Inkscape](https://inkscape.org/) installed.
  1. Then you should install the [SVG2Shenzhen](https://github.com/badgeek/svg2shenzhen) extension for Inkscape.  If you've got a version of Inkscape *before* 1.0 then you should install [SVG2Shenzhen release 0.2.17](https://github.com/badgeek/svg2shenzhen/releases/tag/0.2.17)
+
+> On Linux, if you're getting an error with v0.2.17 with it not able to find the `.kicad_mod` file, make sure the `bitmap2component_linux64` file in the Inkscape extension folder has the executable permission set.
 
 ## Creating Kicad Modules of Your Artwork
 
