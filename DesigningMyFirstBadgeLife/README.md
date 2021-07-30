@@ -22,99 +22,103 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    ![Screen shot of BlankEeschemaWorkArea](screenshots/BlankEeschemaWorkArea.png)
 
-   Select `Place power port` in the Tools on the Right for from `Place/Power Port` drop down menu.  For a simple circuit like an LED throwie this is a bit of an overkill, but it's a good habit to get into for more complex circuits.
+   Select `Place power port` in the Tools on the Right or from `Place/Power Port` drop down menu.  For a simple circuit like an LED throwie this is a bit of an overkill, but it's a good habit to get into for more complex circuits.
 
    The power ports aren't things that will show up physically in your PCB, but ways to link common connections together without having to draw wires between them all, given how common it is to want to link something to GND, for example.  (You can do a similar thing with Labels too, if you want to define your own)
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-03-44.png)
+   ![Screen shot of workarea with Place power port slected](screenshots/Screenshot%20from%202019-05-12%2016-03-44.png)
 
-   Choose the `GND` Power flag, GND from the symbol list and then place it somewhere in the lower half of your schematic.  Don't worry too much about exactly where, you can always move it later if you need to.
+   Click on the work area to bring up the `Choose Power Symbol` dialog. Choose the `GND` Power flag, GND from the symbol list and then place it somewhere in the lower half of your schematic.  Don't worry too much about exactly where, you can always move it later if you need to.
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-04-20.png)
+   ![Screen shot of Choose Power Symbol dialog with GND symbol  selected](screenshots/Screenshot%20from%202019-05-12%2016-04-20.png)
 
-   Then repeat the process to place a `+BATT` power port, somewhere in the upper half of your schematic.  You'll end up with something like this:
+   Then repeat the process to place a `+BATT` power port, somewhere in the upper half of your schematic. (Note the `+`: because it's `+BATT` not `BATT`, you will find it in the upper part of the list with the other options starting with +, not alphabetically under the list item `AC`). You'll end up with something like this:
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-09-28.png)
+   ![Screen shot of GND and +BATT on the work area](screenshots/Screenshot%20from%202019-05-12%2016-09-28.png)
 
+   If you placed your components somewhere else, move them into position by clicking and holding to make a selection box. When you release the mouse, you will be able to move the compoments, then click again to drop them into their new position. The selection box only needs to touch a compoment to select it, not surround it. Pressing the `r` key while components are selected will rotate them anti-clockwise in 90 degree increments.
+   
    Now we'll place the symbols that *will* translate into physical components on the finished PCB.
 
    Select `Place symbol` in the Tools on the Right or from `Place/Symbol` drop down menu and type `BATT` in the search window at the top.  Then choose the `Battery_Cell` symbol and place it in the work area
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-10-09.png)
+   ![Screen shot of Choose Symbol dialog with Battert_Cell selected](screenshots/Screenshot%20from%202019-05-12%2016-10-09.png)
 
    Similarly, add the `LED` symbol to the work area
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-10-43.png)
+   ![Screen shot of Choose Symbol dialog with LED selected](screenshots/Screenshot%20from%202019-05-12%2016-10-43.png)
 
    Your work area should now look like this
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-11-25.png)
+   ![Screen shot of work area](screenshots/Screenshot%20from%202019-05-12%2016-11-25.png)
 
    Now add the `R_Small` symbol to the work area
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-11-48.png)
+   ![Screen shot of Choose Symbol dialog with R_Small selected](screenshots/Screenshot%20from%202019-05-12%2016-11-48.png)
 
    Your work area should now look like this
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-12-23.png)
+   ![Screen shot of work area](screenshots/Screenshot%20from%202019-05-12%2016-12-23.png)
 
    Next we need to wire up the circuit.
 
    Select the green `Place wire` in the Tools on the Right or from `Place/Wire` drop down menu
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-12-34.png)
+   ![Screen shot of work area with place wire icon selected](screenshots/Screenshot%20from%202019-05-12%2016-12-34.png)
 
    Draw a line with the `Place wire` tool from the round end point footprint at the top of the passive resistor `R_Small` symbol to the `+BATT` symbol
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-12-48.png)
+   ![Screen shot of work area with line connecting R_Small to +BATT](screenshots/Screenshot%20from%202019-05-12%2016-12-48.png)
 
    Draw a line with the `Place wire` tool from the round end point footprint of bottom of the passive resistor `R_Small` symbol to the top of the `LED` symbol
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-12-56.png)
+   ![Screen shot of work area with line now connecting R_Small to LED](screenshots/Screenshot%20from%202019-05-12%2016-12-56.png)
 
    Draw a wire from the round end point footprint of bottom of the `LED` symbol to the `GND` symbol
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-13-14.png)
+   ![Screen shot of work area with line now connecting LED to GND](screenshots/Screenshot%20from%202019-05-12%2016-13-14.png)
 
    Draw a wire from the round end point footprint of the `-` of the `Battery_Cell` symbol to the green wire connected to the `GND` symbol. This will generate a small green dot to show that this is a junction, and means the wires are connected at that point.  Wires that cross over *without* the green dot aren't connected together, but it's best to avoid that wherever possible.
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-13-21.png)
+   ![Screen shot of work area with the new line](screenshots/Screenshot%20from%202019-05-12%2016-13-21.png)
 
    Draw a wire from the round end point footprint of the `+` of the `Battery_Cell` symbol to the green wire connected to the `+BATT` symbol. This will generate a junction.
 
    Now all of our schematic is wired up.
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-13-42.png)
+   ![Screen shot of work area with the new line](screenshots/Screenshot%20from%202019-05-12%2016-13-42.png)
 
    We should set the properties of the components so that anyone reading it will know what sort of components to use.
 
-   Double click on the `Battery_Cell` to edit the value field or right click and select `Properties/Edit Properties`
+   Enable the `Select item` tool by clicking it at the top of the right-hand sidebar, or escaping the line tool with the `esc` key on your keyboard.
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-35-15.png)
+   Now double click on the text `Battery_Cell` to edit the value field or right click and select `Properties/Edit Properties`. Double clicking on the symbol itself will bring up the `Edit Properties` box, while clicking on text like `Battery_Cell` will bring up an `Edit Value Field` dialog to edit only that field.
+
+   ![Screen shot of Symbol Properties dialog with reference selected](screenshots/Screenshot%20from%202019-05-12%2016-35-15.png)
 
    Change the `Field Value` of the `Battery_Cell` to `CR2032`  
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-36-40.png)
+   ![Screen shot of Symbol Properties dialog with value selected](screenshots/Screenshot%20from%202019-05-12%2016-36-40.png)
 
    Repeat the process for the resistor, and replace the `R_Small` value with the desired resistance value, in this case `560` ohms.
 
    The final step in creating the schematic is to annotate the components.  This will number them so that if, for example, you had a couple of LEDs on your schematic, you could differentiate between them.
 
-   ![Screen grab of the "Annotate" button](screenshots/Annotate-button.png)
+   ![The "Annotate" button](screenshots/Annotate-button.png)
 
    Click the `Annotate` button in the toolbar to bring up the annotations dialog box.  The default options will be fine, so go ahead and click the `Annotate` button.  And, assuming there are no errors in the messages box, then click `Close`.
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-41-49.png)
+   ![Screen shot of the Annotate Schematic](screenshots/Screenshot%20from%202019-05-12%2016-41-49.png)
 
    Your work area should look like this.  Note that the components now end with numbers rather than question marks.
 
-   ![Screen shot of ](screenshots/Screenshot%20from%202019-05-12%2016-41-56.png)
+   ![Screen shot of work area with updated annotation](screenshots/Screenshot%20from%202019-05-12%2016-41-56.png)
 
 1. ## Footprints and netlist
 
    Now the schematic is finished it's time to turn our attention to the physical layout of the PCB.
 
-   First off we need to specify the physical shape of the components we're using: their *footprints*.  the footprints for components fall into two main classifications: *through hole* and *surface mount* (sometimes also referred to as *SMT* or *SMD*).
+   First off we need to specify the physical shape of the components we're using: their *footprints*.  The footprints for components fall into two main classifications: *through hole* and *surface mount* (the latter are sometimes also referred to as *SMT* or *SMD*).
 
    Through hole components are probably what you're more familiar with.  They have legs that go *through* a *hole* in the PCB and you tend to solder them on the opposite of the PCB from the side the components sits on.
 
@@ -136,9 +140,9 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    ![Screen shot of the Assign Footprints dialog](screenshots/Screenshot%20from%202019-05-12%2019-00-27.png)
 
-   The first time you do this you will load up your footprints library. You may have to configure libraries for parts not included in your Kicad setup. 
+   The first time you do this you will load up your footprints library. You may have to configure libraries for parts not included in your Kicad setup. If you need to, [here's the KiCad documentation page about this](https://kicad.github.io/footprints/) and [here's a youtube tutorial that demonstrates how to add missing footprints in](https://youtu.be/2xRSV1eTsbE).
 
-   Choosing one of the libraries in the left-most column will bring up the list of available footprints in the right-most column.  (No, I don't know why they're either side of the list of components from the schematic either...)  Then pick the relevant component in the middle column and double-click the footprint you want in the right-most column to assign it.  Edit each entry in the list of components in the centre to match the footprints detailed in the list above.
+   Choosing one of the libraries in the left-most column will bring up the list of available footprints in the right-most column.  (No, I don't know why they're either side of the list of components from the schematic either... but you can rearrange the columns if you prefer.)  Then pick the relevant component in the `Symbol: Footprint Assignments` column and double-click the footprint you want in the `Filtered Footprints` column to assign it.  Edit each entry in the list of components in the centre to match the footprints detailed in the list above.
 
    Once you've assigned them all, click `OK` to close the `Assign Footprints` dialog.
 
@@ -152,7 +156,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    Now we'll move to `Pcbnew`, the program we use to define the physical layout of the PCB.
 
-   Close the schematic editor, and in the main `Kicad` program click on the `Pcbnew` icon ![Icon for the Pcbnew](screenshots/PcbnewIcon.png) or choose `Tools` -> `Edit PCB` from the menu.
+   Save and close the schematic editor, and in the main `Kicad` program click on the `Pcbnew` icon ![Icon for the Pcbnew](screenshots/PcbnewIcon.png) or choose `Tools` -> `Edit PCB` from the menu.
 
    ![Screenshot of the empty Pcbnew screen](screenshots/Pcbnew-Blank.png)
 
@@ -288,7 +292,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    Now draw out the rest of the zone, clicking on each corner.  To finish drawing the zone, double-click on the last corner.
 
-   It won't be immediately obvious that anything has changed, other than there being a box with green hashed lines round your design.  That's because the default view doesn't show the filled in copper because it makes it harder to see other parts of the design.  Clicking on the filled zone view options in the left hand toolbar will let you choose between the default (not shown); fully filled in; or the edge of the zone drawn in.
+   It might not be immediately obvious that anything has changed, other than there being a box with green hashed lines round your design.  That's because the default view doesn't show the filled in copper because it makes it harder to see other parts of the design.  Clicking on the filled zone view options in the left hand toolbar will let you choose between the default (not shown); fully filled in; or the edge of the zone drawn in.
 
    ![Filled zone view icons](screenshots/FilledZoneViewIcons.png)
 
@@ -332,7 +336,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    The default options for the rest are fine, and obviously the `Plot format` should be `Gerber`.  Clicking `Plot` will generate the files&mdash;one for each layer&mdash;and list them in the `Output Messages` area.
 
-   Before you close the `Plot` dialog we also need to generate the drill files.  Click `Generate Drill Files...` to open that diaglog:
+   Before you close the `Plot` dialog we also need to generate the drill files.  Click `Generate Drill Files...` to open that dialog:
 
    ![Screenshot of the Generate Drill Files dialog](screenshots/Pcbnew-GenerateDrillFiles.png)
 
