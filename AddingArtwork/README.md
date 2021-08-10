@@ -32,6 +32,8 @@ As an example, we'll rework the PCB design from the [DesigningMyFirstBadgeLife](
 
     ![Screenshot of Inkscape with a deer drawn in the centre of the document](screenshots/Inkscape-Ready.png)
 
+> Particularly for anything on the `edge_cut` layer, make sure your inkscape knows your designs are paths by selecting them all, then `Path` -> `Object to Path` and `Path` -> `Stroke to Path`.
+
  1. Save your design.  The filename you use will also be used for the finished Kicad module, for example, if you save your design as `my-logo.svg` you'll end up with a Kicad module called `my-logo.kicad_mod`.  For the example save it as `Reindeer.svg`.
 
  1. Create the Kicad module: 
@@ -51,11 +53,27 @@ As an example, we'll rework the PCB design from the [DesigningMyFirstBadgeLife](
 
     ![Screenshot of the Footprint Libraries dialog](screenshots/FootprintLibraries.png)
 
- 1. Click `OK` to close the `Footprint Libraries` dialog and then open PcbNew.
+ 1. Click `OK` to close the `Footprint Libraries` dialog and then open PcbNew (From the toolbar menu, `Tools/Edit PCB` or the `PCB Layout Editor` icon).
 
  1. Choose the `Add footprints` tool and click somewhere to add a footprint.
 
  1. Find the `Project` library and choose the `Reindeer` footprint.
 
  1. Place it into the board in a suitable location.
+ 
+ > If your design is blocky when it imports into KiCad, got back to Inkscape and increase the number of nodes using by selecting the nodes with the node tool (hotkey `N`) and clicking the `Insert new nodes into selected segments` icon - usually the first one in the toolbar. Export it again, then reload the footprint library.
+ 
+ > If you are experiencing issues that we haven't documented here, search the [SVG2Shenzen issues](https://github.com/badgeek/svg2shenzhen/issues?q=is%3Aissue) to see if there is a solution or known bug with the tool.
 
+# Next Steps 🧩
+
+Here are the other lessons, if you haven't already taken a look:
+
+ * [Making Footprints](MakingFootprints) or "I want to use a part that isn't in the library!"
+ * [Now Available In 3D](NowAvailableIn3D).  Making 3D models of your board (and creating 3D models for parts without them)
+
+We've also written some notes on other things to consider, such as how to share your design, thoughts on supply chains and other considerations, in [ResponsibleElectronics](ResponsibleElectronics).
+
+If you have any requests for more guides, email [info@mcqn.com](mailto:info@mcqn.com) with your suggestions.
+
+And if you got something useful from this guide and would like to support us in our work on open source hardware, software, and guides like this one, consider [contributing via ko-fi]()https://ko-fi.com/s/d90aba90e1).

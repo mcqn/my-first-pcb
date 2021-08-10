@@ -85,3 +85,15 @@ To work through the steps we'll add the 3D model to the Molex ATX connector that
     1. Click `Apply` to update the footprint, and then `Close` to exit the dialog.
     1. Choose `View` -> `3D Viewer` in the menu to open the 3D viewer to double-check that the component now includes the 3D model!
 
+# Next Steps 🧩
+
+Here are the other lessons, if you haven't already taken a look:
+
+ * [Adding Artwork](AddingArtwork).  Every board deserves a logo!
+ * [Making Footprints](MakingFootprints) or "I want to use a part that isn't in the library!"
+
+We've also written some notes on other things to consider, such as how to share your design, thoughts on supply chains and other considerations, in [ResponsibleElectronics](ResponsibleElectronics).
+
+If you have any requests for more guides, email [info@mcqn.com](mailto:info@mcqn.com) with your suggestions.
+
+And if you got something useful from this guide and would like to support us in our work on open source hardware, software, and guides like this one, consider [contributing via ko-fi]()https://ko-fi.com/s/d90aba90e1).
