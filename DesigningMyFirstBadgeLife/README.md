@@ -1,4 +1,4 @@
-# The Basics - Designing an LED Throwie
+# The Basics - Designing an LED Name Badge
 
 We're going to start with one of the simplest circuits for our first badge: a battery-powered LED.  It won't be the most exciting circuit board but will let us focus on all the steps in making the PCB without getting distracted by how the electronics work.
 
@@ -347,3 +347,17 @@ We're going to start with one of the simplest circuits for our first badge: a ba
    There aren't any particular gotchas when ordering the boards&mdash;you can choose the colour of solder mask based on your personal preferences, and for other options the PCB house's defaults will be fine for this level of board.  If you're thinking of using solder paste and a hotplate or reflow oven to solder the components on, rather than a soldering iron, then it's worth ordering a PCB stencil at the same time as your PCB.
 
    Well done, you've got your first PCB designed and ready to order!
+
+# Next Steps 🧩
+
+This might have been far enough for you. But there's always more to learn. Take a look at the other lessons - either choose one based on your project, or work through them in order if you are learning without a specific project in mind.
+
+ * [Adding Artwork](AddingArtwork).  Every board deserves a logo!
+ * [Making Footprints](MakingFootprints) or "I want to use a part that isn't in the library!"
+ * [Now Available In 3D](NowAvailableIn3D).  Making 3D models of your board (and creating 3D models for parts without them)
+
+We've also written some notes on other things to consider, such as how to share your design, thoughts on supply chains and other considerations, in [ResponsibleElectronics](ResponsibleElectronics).
+
+If you have any requests for more guides, email [info@mcqn.com](mailto:info@mcqn.com) with your suggestions.
+
+And if you got something useful from this guide and would like to support us in our work on open source hardware, software, and guides like this one, consider [contributing via ko-fi]()https://ko-fi.com/s/d90aba90e1).

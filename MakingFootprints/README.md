@@ -189,3 +189,15 @@ Occassionally, like in our example here, there isn't a standard datasheet and yo
 
   1. With the footprint now finished, all that remains is to save it.  Choose `File` -> `Save` from the menu; then choose the library that you created at the start (or the one you've already created to store your footprints) and click `Save`
 
+# Next Steps 🧩
+
+Here are the other lessons, if you haven't already taken a look:
+
+ * [Adding Artwork](AddingArtwork).  Every board deserves a logo!
+ * [Now Available In 3D](NowAvailableIn3D).  Making 3D models of your board (and creating 3D models for parts without them)
+
+We've also written some notes on other things to consider, such as how to share your design, thoughts on supply chains and other considerations, in [ResponsibleElectronics](ResponsibleElectronics).
+
+If you have any requests for more guides, email [info@mcqn.com](mailto:info@mcqn.com) with your suggestions.
+
+And if you got something useful from this guide and would like to support us in our work on open source hardware, software, and guides like this one, consider [contributing via ko-fi]()https://ko-fi.com/s/d90aba90e1).

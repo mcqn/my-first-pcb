@@ -51,7 +51,7 @@ As an example, we'll rework the PCB design from the [DesigningMyFirstBadgeLife](
 
     ![Screenshot of the Footprint Libraries dialog](screenshots/FootprintLibraries.png)
 
- 1. Click `OK` to close the `Footprint Libraries` dialog and then open PcbNew.
+ 1. Click `OK` to close the `Footprint Libraries` dialog and then open PcbNew (From the toolbar menu, `Tools/Edit PCB` or the `PCB Layout Editor` icon).
 
  1. Choose the `Add footprints` tool and click somewhere to add a footprint.
 
@@ -59,3 +59,15 @@ As an example, we'll rework the PCB design from the [DesigningMyFirstBadgeLife](
 
  1. Place it into the board in a suitable location.
 
+# Next Steps 🧩
+
+Here are the other lessons, if you haven't already taken a look:
+
+ * [Making Footprints](MakingFootprints) or "I want to use a part that isn't in the library!"
+ * [Now Available In 3D](NowAvailableIn3D).  Making 3D models of your board (and creating 3D models for parts without them)
+
+We've also written some notes on other things to consider, such as how to share your design, thoughts on supply chains and other considerations, in [ResponsibleElectronics](ResponsibleElectronics).
+
+If you have any requests for more guides, email [info@mcqn.com](mailto:info@mcqn.com) with your suggestions.
+
+And if you got something useful from this guide and would like to support us in our work on open source hardware, software, and guides like this one, consider [contributing via ko-fi]()https://ko-fi.com/s/d90aba90e1).
