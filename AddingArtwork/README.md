@@ -32,6 +32,8 @@ As an example, we'll rework the PCB design from the [DesigningMyFirstBadgeLife](
 
     ![Screenshot of Inkscape with a deer drawn in the centre of the document](screenshots/Inkscape-Ready.png)
 
+> Particularly for anything on the `edge_cut` layer, make sure your inkscape knows your designs are paths by selecting them all, then `Path` -> `Object to Path` and `Path` -> `Stroke to Path`.
+
  1. Save your design.  The filename you use will also be used for the finished Kicad module, for example, if you save your design as `my-logo.svg` you'll end up with a Kicad module called `my-logo.kicad_mod`.  For the example save it as `Reindeer.svg`.
 
  1. Create the Kicad module: 
@@ -58,6 +60,10 @@ As an example, we'll rework the PCB design from the [DesigningMyFirstBadgeLife](
  1. Find the `Project` library and choose the `Reindeer` footprint.
 
  1. Place it into the board in a suitable location.
+ 
+ > If your design is blocky when it imports into KiCad, got back to Inkscape and increase the number of nodes using by selecting the nodes with the node tool (hotkey `N`) and clicking the `Insert new nodes into selected segments` icon - usually the first one in the toolbar. Export it again, then reload the footprint library.
+ 
+ > If you are experiencing issues that we haven't documented here, search the [SVG2Shenzen issues](https://github.com/badgeek/svg2shenzhen/issues?q=is%3Aissue) to see if there is a solution or known bug with the tool.
 
 # Next Steps 🧩
 
