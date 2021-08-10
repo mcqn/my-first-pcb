@@ -36,7 +36,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
    ![Screen shot of GND and +BATT on the work area](screenshots/Screenshot%20from%202019-05-12%2016-09-28.png)
 
-   If you placed your components somewhere else, move them into position by clicking and holding to make a selection box. When you release the mouse, you will be able to move the compoments, then click again to drop them into their new position. The selection box only needs to touch a compoment to select it, not surround it. Pressing the `r` key while components are selected will rotate them anti-clockwise in 90 degree increments.
+   If you placed your components somewhere else, move them into position by clicking and dragging to make a selection box. When you release the mouse, you will be able to move the compoments, then click again to drop them into their new position. The selection box only needs to touch a compoment to select it, not surround it. Pressing the `r` key while components are selected will rotate them anti-clockwise in 90 degree increments.
    
    Now we'll place the symbols that *will* translate into physical components on the finished PCB.
 
