@@ -5,7 +5,7 @@
 
 ### Learn how to make your first Printed Circuit Board (PCB)!
 
-Design a printed circuit board to get you started in the world of electronics design and small scale manufacturing. Designed to give you an understanding of some basic fundamentals in electronics production with [KiCad](https://kicad-pcb.org/) using [MCQN Ltd](https://mcqn.com/)'s experience designing and developing products, systems and the Internet of Things. Everything from cufflinks, dust sensors, Museum installations and internet connected bells, LED drivers and bubble machines.
+Design a printed circuit board to get you started in the world of electronics design and small scale manufacturing. Designed to give you an understanding of some basic fundamentals in electronics production with [KiCad](https://www.kicad.org/) using [MCQN Ltd](https://mcqn.com/)'s experience designing and developing products, systems and the Internet of Things. Everything from cufflinks, dust sensors, Museum installations and internet connected bells, LED drivers and bubble machines.
 
  * Maybe you've been building up your own circuits on a breadboard for a while now, and maybe soldering some of them onto stripboard, but want to make them look nicer.
  * You want things to be more robust, professional and safe to help with product development or your own systems.

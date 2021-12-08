@@ -4,7 +4,7 @@ We're going to start with one of the simplest circuits for our first badge: a ba
 
 1. ## Installing Kicad
 
-   Download the latest stable version of Kicad for your operating system from the [Kicad downloads page](http://kicad-pcb.org/download/).  You should make sure it is at least v5.1.5 (that's what all the example files are saved as, if you want to compare them)
+   Download the latest stable version of Kicad for your operating system from the [Kicad downloads page](http://www.kicad.org/download/).  You should make sure it is at least v5.1.5 (that's what all the example files are saved as, if you want to compare them)
 
 1. ## Build the schematic
 
